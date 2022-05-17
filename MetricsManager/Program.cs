@@ -1,4 +1,5 @@
 using MetricsManager.Models;
+using MetricsManager.Services;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 
@@ -7,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddSingleton<AgentPool>();
+builder.Services.AddSingleton<IAgentPool<AgentInfo>,AgentPool>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>

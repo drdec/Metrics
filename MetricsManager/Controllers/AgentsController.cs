@@ -1,4 +1,5 @@
 ﻿using MetricsManager.Models;
+using MetricsManager.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,9 +9,9 @@ namespace MetricsManager.Controllers
     [ApiController]
     public class AgentsController : ControllerBase
     {
-        private AgentPool _agentPool;
+        private IAgentPool<AgentInfo> _agentPool;
 
-        public AgentsController(AgentPool agentPool)
+        public AgentsController(IAgentPool<AgentInfo> agentPool)
         {
             _agentPool = agentPool;
         }
